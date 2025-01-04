@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年快乐</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #FFCC00 0%, #FF669B 50%, #CC66FF 100%);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            font-family: 'Lobster', cursive;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            animation: bounce 1s infinite alternate;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            line-height: 1.5;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        .firework {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 0, 0, 0.5);
+            border-radius: 50%;
+            animation: explode 2s infinite forwards;
+            pointer-events: none; /* 不允许鼠标事件，避免影响点击 */
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>新年快乐！</h1>
+        <p>愿新的一年带给你无限的快乐和幸运。</p>
+        <p>点击这里重新开始庆祝！</p>
+        
+        <div class="firework" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="firework" style="top: 20%; right: 30%; animation-delay: 1s;"></div>
+        <div class="firework" style="top: 35%; left: 60%; animation-delay: 1.5s;"></div>
+        <div class="firework" style="top: 50%; right: 10%; animation-delay: 2s;"></div>
+        <div class="firework" style="top: 70%; left: 40%; animation-delay: 2.5s;"></div>
+    </div>
+
+    <script>
+        document.querySelector('p:last-of-type').onclick = function() {
+            location.reload(); // 重新加载页面
+        };
+    </script>
+
+</body>
+</html>
